@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Handjet:wght@400;700&display=swap');
+
+$primary-dark: #053339;
+$primary-medium: #186a5e;
+$primary-light: #54a399;
+$primary-lighter: #46cebe;
+$primary-lightest: #c6f4f2;
+
+$accent-blue: #00eeff;
+$accent-teal: #4df0f8;
+$accent-green: #4df8df;
+
+$bg-dark: #021619;
+$bg-medium: #0b201d;
+$bg-content: #192f2b;
+$bg-button: #12352f;
+$bg-button-hover: #051715;
+
+$text-light: #e1eeeb;
+$text-lighter: #d1f0ec;
+$text-lightest: #edfcfa;
+$text-accent: #c1e2dd;
+$text-dark: #221c18;
+$text-emphasis: #10655b;
+
+$shadow-dark: rgba(0, 0, 0, 0.8);
+$shadow-medium: rgba(35, 34, 34, 0.6);
+$shadow-light: rgba(35, 34, 34, 0.4);
+$modal-backdrop: rgba(0, 0, 0, 0.9);
+$modal-bg: #d7fcf8;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: radial-gradient($primary-medium, $primary-dark);
+  color: $text-light;
+  min-height: 100vh;
+}
+
+.content {
+  max-width: 60rem;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: radial-gradient($bg-medium, $bg-dark);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px $shadow-dark;
+}
+
+h1 {
+  font-family: 'Handjet', monospace;
+  text-align: center;
+  text-transform: uppercase;
+  color: $text-accent;
+  text-shadow: 0 0 4px $shadow-light;
+  font-size: 3.5rem;
+  margin: 0;
+  
+  em {
+    font-style: normal;
+    color: $accent-blue;
+  }
+}
+
+header {
+  p {
+    font-size: 1.2rem;
+    margin: 0;
+    text-align: center;
+    color: $primary-lightest;
+  }
+}
+
+.player {
+  text-align: center;
+  
+  h2 {
+    color: $primary-light;
+  }
+  
+  p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  input {
+    font: inherit;
+    border: 1px solid $primary-light;
+    background-color: $bg-content;
+    border-radius: 4px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 0.25rem;
+    color: $text-lighter;
+  }
+  
+  button {
+    cursor: pointer;
+    background-color: $primary-light;
+    border: 1px solid $primary-light;
+    padding: 0.4rem 1rem;
+    color: $bg-dark;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    
+    &:hover {
+      background-color: #3c8379;
+      border-color: #3c8379;
+    }
+  }
+}
+
+
+.challenges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  
+  // Media query for smaller screens
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.challenge {
+  display: flex;
+  flex: 1 1 calc(50% - 2rem);
+  max-width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  border-radius: 8px;
+  background: linear-gradient($accent-green, $accent-teal);
+  color: $text-dark;
+  box-shadow: 0 2px 8px $shadow-medium;
+  border-radius: 6px;
+  
+  // Media query for smaller screens
+  @media (max-width: 768px) {
+    flex: 1 1 100%;
+    max-width: 50%;
+  }
+
+  button {
+    // margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background: $bg-button;
+    color: $text-lightest;
+    font-size: 1.2rem;
+    cursor: pointer;
+    
+    &:hover {
+      background: $bg-button-hover;
+    }
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+    color: $text-dark;
+  }
+  
+  .active {
+    animation: flash 1s infinite;
+  }
+}
+
+.challenge-time {
+  border: 1px solid $primary-lighter;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  margin: 0.5rem;
+}
+
+.challenge-status {
+  margin: 0 auto;
+}
+
+.result-modal {
+  border: none;
+  border-radius: 8px;
+  padding: 2rem;
+  background-color: $modal-bg;
+  
+  &[open] {
+    animation: slide-in-from-top 0.35s ease-out;
+  }
+  
+  &::backdrop {
+    background: $modal-backdrop;
+  }
+  
+  h2 {
+    font-family: 'Handjet', monospace;
+    margin: 0 0 0.25rem 0;
+    font-size: 3.4rem;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+  
+  progress {
+    width: 100%;
+    height: 1.5rem;
+    margin: 0;
+    accent-color: $primary-lighter;
+  }
+  
+  p {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+    
+    strong {
+      color: $text-emphasis;
+    }
+  }
+  
+  form {
+    text-align: right;
+  }
+  
+  button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background: $bg-button;
+    color: $text-lightest;
+    font-size: 1.2rem;
+    cursor: pointer;
+    
+    &:hover {
+      background: $bg-button-hover;
+    }
+  }
+}
+
+@keyframes slide-in-from-top {
+  0% {
+    transform: translateY(-15%);
+    opacity: 0;
+  }
+  
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes flash {
+  0% {
+    opacity: 0.5;
+  }
+  
+  50% {
+    opacity: 1;
+  }
+  
+  100% {
+    opacity: 0.5;
+  }
+}
