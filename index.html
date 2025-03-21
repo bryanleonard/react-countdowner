@@ -15,6 +15,13 @@
       </header>
       <div id="root"></div>
     </div>
+    <footer class="footer">
+      <p><span id="currYear"></span> | Something, something, something Dark Side.</p>
+    </footer>
     <script type="module" src="/src/index.jsx"></script>
+    <script>
+      const currYear = new Date().getFullYear();
+      document.getElementById('currYear').textContent = currYear;
+    </script>
   </body>
 </html>
