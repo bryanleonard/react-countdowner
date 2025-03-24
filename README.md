@@ -9,7 +9,7 @@ then
 
 `npm run dev`
 
-<!-- View demo at [https://bryanleonard.github.io/react-countdowner](https://bryanleonard.github.io/react-countdowner) -->
+View demo at [https://bryanleonard.github.io/react-countdowner](https://bryanleonard.github.io/react-countdowner)
 
 ----------------
 
