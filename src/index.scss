@@ -211,8 +211,12 @@ header {
 .result-modal {
   border: none;
   border-radius: 8px;
-  padding: 2rem;
+  padding: 0; //2rem;
   background-color: $modal-bg;
+
+  > div {
+    padding: 2rem;
+  }
   
   &[open] {
     animation: slide-in-from-top 0.35s ease-out;

@@ -26,7 +26,6 @@ export default function TimerChallenge({title, targetTime}) {
 			// setTimerExpired(true);
 			// dialog.current.open();
 			setTimeRemaining(prevTime => {
-				console.log(`prevTime ${prevTime}`);
 				return prevTime - 10;
 		});
 		}, 10);
@@ -42,7 +41,7 @@ export default function TimerChallenge({title, targetTime}) {
 	
 	return (
 		<>
-			<ResultModal ref={dialog} targetTime={targetTime} remainingTime={timeRemaining} onReset={handleReset} />
+			<ResultModal ref={dialog} targetTime={targetTime} remainingTime={timeRemaining} onReset={handleReset}  />
 
 			<section className="challenge">
 				<h2>{title}</h2>
